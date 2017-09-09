@@ -4,7 +4,7 @@
 Dipendra Misra, John Langford, and Yoav Artzi  
 In Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP), 2017.  
 
-[![demo](http://yoavartzi.com/temp/emnlp2017-video.gif "Demo")](https://youtu.be/fmCP-SdDOT0)
+[![demo](http://yoavartzi.com/temp/emnlp2017-video.gif "Blocks Demo (full approach)")](https://youtu.be/fmCP-SdDOT0)
 
 # Run the code in 60 seconds 
 
