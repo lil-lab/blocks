@@ -6,7 +6,9 @@ In Proceedings of the Conference on Empirical Methods in Natural Language Proces
 
 [![demo](http://yoavartzi.com/temp/emnlp2017-vid.gif "Blocks Demo (full approach)")](https://youtu.be/fmCP-SdDOT0)
 
-# Run the code in 60 seconds 
+The original environment was designed by [Bisk et al. 2016](http://yonatanbisk.com/papers/2016-NAACL.pdf), who also collected the [data](https://nlg.isi.edu/language-grounding/). 
+
+## Run the Code in 60 Seconds 
 
 In this section, we will run the oracle baseline on the devset. This will give an idea of the simulator and code 
 and does not require tensorflow.
@@ -14,7 +16,7 @@ and does not require tensorflow.
 Supports: Mac and Linux Build
 Requires: python2.7
 
-**Instructions for running on Mac**:
+### Running on Mac
 
 1) Clone the code  ``git clone https://github.com/clic-lab/blocks``
 2) Go to blocks/BlockWorldSimulator/ and run build_mac.app
@@ -23,7 +25,7 @@ Requires: python2.7
      
       ``python agent_oracle.py``
 
-**Instructions for running on Mac**:
+### Running on Linux
 
 Same as above except run linux_build.x86_64 instead of build_mac.app
 You may have to give executable permission to the build. To do so run:
@@ -31,5 +33,7 @@ You may have to give executable permission to the build. To do so run:
 `` chmod 777 linux_build.x86_64``
 
 Instructions for running other baselines will come soon.
+
+-------
 
 **Production Release and pre-trained models coming soon ...**
