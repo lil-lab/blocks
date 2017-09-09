@@ -11,7 +11,7 @@ The original environment was designed by [Bisk et al. 2016](http://yonatanbisk.c
 ## Run the Code in 60 Seconds (Requires only python 2.7)
 
 In this section, we will run the oracle baseline on the devset. 
-This will give an idea of the simulator and code and does not require tensorflow.
+This will give an idea of the simulator and the code and does not requires any dependency besides python 2.7.
 
 **Supports:** Mac OS and Linux
 
@@ -24,7 +24,8 @@ This will give an idea of the simulator and code and does not require tensorflow
 
    Choose the Fastest mode setting and any resolution (does not matter which resolution).
    
-3) Now run the oracle baseline by running the following command in the home directory:
+3) Now run the oracle baseline by running the following command in the home directory.
+   May take 5-10 seconds for the simulator to be ready and before following command works.
      
       ``cd ./blocks/BlockWorldRoboticAgent/``
       
@@ -44,7 +45,8 @@ This will give an idea of the simulator and code and does not require tensorflow
 
    Choose the Fastest mode setting and any resolution (does not matter which resolution).
    
-3) Finally run the oracle baseline by running the following command in the home directory:
+3) Finally run the oracle baseline by running the following command in the home directory.
+   May take 5-10 seconds for the simulator to be ready and before following command works.
      
       ``cd ./blocks/BlockWorldRoboticAgent/``
       
