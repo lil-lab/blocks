@@ -22,6 +22,13 @@ Instructions for running on Mac:
      
       ``python agent_oracle.py``
 
+Instructions for running on Mac:
+
+Same as above except run linux_build.x86_64 instead of build_mac.app
+You may have to give executable permission to the build. To do so run:
+
+`` chmod 777 linux_build.x86_64``
 
 Instructions for running other baselines will come soon.
+
 ** Production Release and pre-trained models coming soon ...**
