@@ -22,4 +22,6 @@ Instructions for running on Mac:
      
       ``python agent_oracle.py``
 
-** Stable Release and pre-trained models coming soon ...**
+
+Instructions for running other baselines will come soon.
+** Production Release and pre-trained models coming soon ...**
