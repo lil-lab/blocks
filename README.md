@@ -13,7 +13,7 @@ and does not require tensorflow.
 
 Supports: Mac and Linux Build
 
-Instructions for running on Mac:
+**Instructions for running on Mac**:
 
 1) Clone the code  ``git clone https://github.com/clic-lab/blocks``
 2) Go to blocks/BlockWorldSimulator/ and run build_mac.app
@@ -22,7 +22,7 @@ Instructions for running on Mac:
      
       ``python agent_oracle.py``
 
-Instructions for running on Mac:
+**Instructions for running on Mac**:
 
 Same as above except run linux_build.x86_64 instead of build_mac.app
 You may have to give executable permission to the build. To do so run:
@@ -31,4 +31,4 @@ You may have to give executable permission to the build. To do so run:
 
 Instructions for running other baselines will come soon.
 
-** Production Release and pre-trained models coming soon ...**
+**Production Release and pre-trained models coming soon ...**
