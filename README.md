@@ -6,12 +6,13 @@ In Proceedings of the Conference on Empirical Methods in Natural Language Proces
 
 [![demo](http://yoavartzi.com/temp/emnlp2017-video.gif "Demo")](https://youtu.be/fmCP-SdDOT0)
 
-# Run the code in 60 seconds
+# Run the code in 60 seconds 
 
 In this section, we will run the oracle baseline on the devset. This will give an idea of the simulator and code 
 and does not require tensorflow.
 
 Supports: Mac and Linux Build
+Requires: python2.7
 
 **Instructions for running on Mac**:
 
