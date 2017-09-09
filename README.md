@@ -6,5 +6,20 @@ In Proceedings of the Conference on Empirical Methods in Natural Language Proces
 
 [![demo](http://yoavartzi.com/temp/emnlp2017-video.gif "Demo")](https://youtu.be/fmCP-SdDOT0)
 
+# Run the code in 60 seconds
 
-**Code and models coming soon ...**
+In this section, we will run the oracle baseline on the devset. This will give an idea of the simulator and code 
+and does not require tensorflow.
+
+Supports: Mac and Linux Build
+
+Instructions for running on Mac:
+
+1) Clone the code  ``git clone https://github.com/clic-lab/blocks``
+2) Go to blocks/BlockWorldSimulator/ and run build_mac.app
+   Choose the Fastest mode setting and any resolution (does not matter which resolution).
+3) Now run the oracle baseline. Go to BlockWorldRoboticAgent and run the following command:
+     
+      ``python agent_oracle.py``
+
+** Stable Release and pre-trained models coming soon ...**
