@@ -1,0 +1,1514 @@
+IP not given. Using localhost i.e. 0.0.0.0
+PORT not given. Using 11000
+Dataset size: -1
+Shuffle before select: False
+Dataset file: devset.json
+
+Simplified: False
+Horizon: 40
+Reward function type: 4
+Use localhost: False
+Stop action reward: False
+Screen size: 120
+Created Agent.
+Bisk Metric 0.0
+Instruction: Pick up block 6 and place it so it is on a diagonal between blocks 11 and 20
+5 north
+
+5 north
+
+5 north
+
+5 west
+
+5 west
+
+5 west
+
+5 west
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 west
+
+5 west
+
+Stop
+
+Example: 0 Instruction: Pick up block 6 and place it so it is on a diagonal between blocks 11 and 20 Steps: 17
+	 Total expected reward: 8.72506909771
+	 Avg. expected reward: 0.513239358689
+
+============================================
+Bisk Metric 0.313848614693
+Instruction: slide block 6 left and down so that it is to the right of block 11 and above block 20
+5 north
+
+5 north
+
+5 north
+
+5 west
+
+5 west
+
+5 west
+
+5 west
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 west
+
+5 west
+
+Stop
+
+Example: 1 Instruction: slide block 6 left and down so that it is to the right of block 11 and above block 20 Steps: 17
+	 Total expected reward: 8.72507605515
+	 Avg. expected reward: 0.51323976795
+
+============================================
+Bisk Metric 0.313842475414
+Instruction: move block 6 so that its bottom right corner is above block 20 and its top left corner is to the right of block 11
+5 north
+
+5 north
+
+5 north
+
+5 west
+
+5 west
+
+5 west
+
+5 west
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 west
+
+5 west
+
+Stop
+
+Example: 2 Instruction: move block 6 so that its bottom right corner is above block 20 and its top left corner is to the right of block 11 Steps: 17
+	 Total expected reward: 8.72506831307
+	 Avg. expected reward: 0.513239312534
+
+============================================
+Bisk Metric 0.31385037303
+Instruction: The 6 block moved to behind the 20 from behind the 17 block.
+5 north
+
+5 north
+
+5 north
+
+5 west
+
+5 west
+
+5 west
+
+5 west
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 west
+
+5 west
+
+Stop
+
+Example: 3 Instruction: The 6 block moved to behind the 20 from behind the 17 block. Steps: 17
+	 Total expected reward: 8.72507124813
+	 Avg. expected reward: 0.513239485184
+
+============================================
+Bisk Metric 0.313847273588
+Instruction: The 6th blocked was behind the 17 block, but moved next to the 11th block.
+5 north
+
+5 north
+
+5 north
+
+5 west
+
+5 west
+
+5 west
+
+5 west
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 west
+
+5 west
+
+Stop
+
+Example: 4 Instruction: The 6th blocked was behind the 17 block, but moved next to the 11th block. Steps: 17
+	 Total expected reward: 8.72507443279
+	 Avg. expected reward: 0.513239672517
+
+============================================
+Bisk Metric 0.313844114542
+Instruction: The 6th block was behind the 17th block, but was moved on top of the 20th block.
+5 north
+
+5 north
+
+5 north
+
+5 west
+
+5 west
+
+5 west
+
+5 west
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 west
+
+5 west
+
+Stop
+
+Example: 5 Instruction: The 6th block was behind the 17th block, but was moved on top of the 20th block. Steps: 17
+	 Total expected reward: 8.72502086032
+	 Avg. expected reward: 0.513236521195
+
+============================================
+Bisk Metric 0.313868254423
+Instruction: the number six cube should be taken from the upper right corner and placed between the 11 and 20 cubes.  The top of 6 should be level with the middle of the 11's right side, and level with the middle of the 20's top side.
+5 north
+
+5 north
+
+5 north
+
+5 west
+
+5 west
+
+5 west
+
+5 west
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 west
+
+5 west
+
+Stop
+
+Example: 6 Instruction: the number six cube should be taken from the upper right corner and placed between the 11 and 20 cubes.  The top of 6 should be level with the middle of the 11's right side, and level with the middle of the 20's top side. Steps: 17
+	 Total expected reward: 8.72504245304
+	 Avg. expected reward: 0.513237791355
+
+============================================
+Bisk Metric 0.313854724169
+Instruction: the number six should be placed so that the top left corner is even with the middle of the 11, and the lower right corner is even with the middle of the 20
+5 north
+
+5 north
+
+5 north
+
+5 west
+
+5 west
+
+5 west
+
+5 west
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 west
+
+5 west
+
+Stop
+
+Example: 7 Instruction: the number six should be placed so that the top left corner is even with the middle of the 11, and the lower right corner is even with the middle of the 20 Steps: 17
+	 Total expected reward: 8.72501593828
+	 Avg. expected reward: 0.513236231664
+
+============================================
+Bisk Metric 0.31387835741
+Instruction: the 6 is placed to the right of the 11 and above the 20 so that it is right in the middle
+5 north
+
+5 north
+
+5 north
+
+5 west
+
+5 west
+
+5 west
+
+5 west
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 north
+
+5 west
+
+5 west
+
+Stop
+
+Example: 8 Instruction: the 6 is placed to the right of the 11 and above the 20 so that it is right in the middle Steps: 17
+	 Total expected reward: 8.72501008632
+	 Avg. expected reward: 0.51323588743
+
+============================================
+Bisk Metric 0.313908606768
+Instruction: Pick up block 8 and move it so that the bottom left corner of block 8 touches the top right corner of block 6.
+7 north
+
+7 north
+
+7 north
+
+7 north
+
+7 north
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 north
+
+Stop
+
+Example: 9 Instruction: Pick up block 8 and move it so that the bottom left corner of block 8 touches the top right corner of block 6. Steps: 15
+	 Total expected reward: 8.02415236086
+	 Avg. expected reward: 0.534943490724
+
+============================================
+Bisk Metric 0.287187248468
+Instruction: slide block 8 around blocks 14 and 12 and then to the left until its bottom left corner touches block 6
+7 north
+
+7 north
+
+7 north
+
+7 north
+
+7 north
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 north
+
+Stop
+
+Example: 10 Instruction: slide block 8 around blocks 14 and 12 and then to the left until its bottom left corner touches block 6 Steps: 15
+	 Total expected reward: 8.02416153252
+	 Avg. expected reward: 0.534944102168
+
+============================================
+Bisk Metric 0.287178188562
+Instruction: lift up block 8 so that it goes over block 16 and then place it down below block 19 , where  the top left corner of block 8 meets the middle of the bottom of block 19
+7 north
+
+7 north
+
+7 north
+
+7 north
+
+7 north
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 north
+
+Stop
+
+Example: 11 Instruction: lift up block 8 so that it goes over block 16 and then place it down below block 19 , where  the top left corner of block 8 meets the middle of the bottom of block 19 Steps: 15
+	 Total expected reward: 8.02416791767
+	 Avg. expected reward: 0.534944527845
+
+============================================
+Bisk Metric 0.287111103535
+Instruction: The 8 block moved from in front of the 14 to behind the 6 block.
+7 north
+
+7 north
+
+7 north
+
+7 north
+
+7 north
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 north
+
+Stop
+
+Example: 12 Instruction: The 8 block moved from in front of the 14 to behind the 6 block. Steps: 15
+	 Total expected reward: 8.0241997689
+	 Avg. expected reward: 0.53494665126
+
+============================================
+Bisk Metric 0.287139624357
+Instruction: The 8 block was under the 14 but moved under the 19th block.
+7 north
+
+7 north
+
+7 north
+
+7 north
+
+7 north
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 north
+
+Stop
+
+Example: 13 Instruction: The 8 block was under the 14 but moved under the 19th block. Steps: 15
+	 Total expected reward: 8.02416076511
+	 Avg. expected reward: 0.534944051007
+
+============================================
+Bisk Metric 0.287178903818
+Instruction: the 8th block was under the 14th block, but  moved under the 19th block.
+7 north
+
+7 north
+
+7 north
+
+7 north
+
+7 north
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 north
+
+Stop
+
+Example: 14 Instruction: the 8th block was under the 14th block, but  moved under the 19th block. Steps: 15
+	 Total expected reward: 8.02418254316
+	 Avg. expected reward: 0.534945502877
+
+============================================
+Bisk Metric 0.287157028913
+Instruction: the 8 should be taken from the middle of the right hand side and placed beneath the 19, but above the 6.  The left side of the 8 should be even with the right side of the six.
+7 north
+
+7 north
+
+7 north
+
+7 north
+
+7 north
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 north
+
+Stop
+
+Example: 15 Instruction: the 8 should be taken from the middle of the right hand side and placed beneath the 19, but above the 6.  The left side of the 8 should be even with the right side of the six. Steps: 15
+	 Total expected reward: 8.02415410429
+	 Avg. expected reward: 0.534943606953
+
+============================================
+Bisk Metric 0.287185490131
+Instruction: the 8 should be placed so that it is between the 19 and the 6.  The 8 should be next to the 6, but not over it.
+7 north
+
+7 north
+
+7 north
+
+7 north
+
+7 north
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 north
+
+Stop
+
+Example: 16 Instruction: the 8 should be placed so that it is between the 19 and the 6.  The 8 should be next to the 6, but not over it. Steps: 15
+	 Total expected reward: 8.02419466525
+	 Avg. expected reward: 0.534946311017
+
+============================================
+Bisk Metric 0.287138462067
+Instruction: the 8 is placed beneath the 19 but above the 6.  8 should be halfway under the 19 without touching the 6
+7 north
+
+7 north
+
+7 north
+
+7 north
+
+7 north
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 east
+
+7 north
+
+Stop
+
+Example: 17 Instruction: the 8 is placed beneath the 19 but above the 6.  8 should be halfway under the 19 without touching the 6 Steps: 15
+	 Total expected reward: 8.02421359718
+	 Avg. expected reward: 0.534947573145
+
+============================================
+Bisk Metric 0.287126094103
+Instruction: Pick up block 10 and place it so it is directly to the right of block 8.
+9 south
+
+9 south
+
+9 south
+
+9 east
+
+9 east
+
+9 south
+
+9 south
+
+9 south
+
+9 south
+
+9 south
+
+9 south
+
+9 west
+
+9 west
+
+9 west
+
+9 west
+
+9 north
+
+9 north
+
+9 west
+
+9 west
+
+Stop
+
+Example: 18 Instruction: Pick up block 10 and place it so it is directly to the right of block 8. Steps: 20
+	 Total expected reward: 6.72158123553
+	 Avg. expected reward: 0.336079061776
+
+============================================
+Bisk Metric 0.174309909344
+Instruction: slide block 10 to the right and then down until it is directly on the right of block 8
+9 south
+
+9 south
+
+9 south
+
+9 east
+
+9 east
+
+9 south
+
+9 south
+
+9 south
+
+9 south
+
+9 south
+
+9 south
+
+9 west
+
+9 west
+
+9 west
+
+9 west
+
+9 north
+
+9 north
+
+9 west
+
+9 west
+
+Stop
+
+Example: 19 Instruction: slide block 10 to the right and then down until it is directly on the right of block 8 Steps: 20
+	 Total expected reward: 6.72158639226
+	 Avg. expected reward: 0.336079319613
+
+============================================
+Bisk Metric 0.174311921
+Instruction: lift up block 10 and place it so that the left side of block 10 is flush with the right side of block 8
+9 south
+
+9 south
+
+9 south
+
+9 east
+
+9 east
+
+9 south
+
+9 south
+
+9 south
+
+9 south
+
+9 south
+
+9 south
+
+9 west
+
+9 west
+
+9 west
+
+9 west
+
+9 north
+
+9 north
+
+9 west
+
+9 west
+
+Stop
+
+Example: 20 Instruction: lift up block 10 and place it so that the left side of block 10 is flush with the right side of block 8 Steps: 20
+	 Total expected reward: 6.72159139533
+	 Avg. expected reward: 0.336079569766
+
+============================================
+Bisk Metric 0.174307078123
+Instruction: The 10 block moved from behind the 15, next to the 8 block.
+9 south
+
+9 south
+
+9 south
+
+9 east
+
+9 east
+
+9 south
+
+9 south
+
+9 south
+
+9 south
+
+9 south
+
+9 south
+
+9 west
+
+9 west
+
+9 west
+
+9 west
+
+9 north
+
+9 north
+
+9 west
+
+9 west
+
+Stop
+
+Example: 21 Instruction: The 10 block moved from behind the 15, next to the 8 block. Steps: 20
+	 Total expected reward: 6.72150212713
+	 Avg. expected reward: 0.336075106356
+
+============================================
+Bisk Metric 0.174396291375
+Instruction: The 10th block was behind the 15th block but moved next to the 8th block.
+9 south
+
+9 south
+
+9 south
+
+9 east
+
+9 east
+
+9 south
+
+9 south
+
+9 south
+
+9 south
+
+9 south
+
+9 south
+
+9 west
+
+9 west
+
+9 west
+
+9 west
+
+9 north
+
+9 north
+
+9 west
+
+9 west
+
+Stop
+
+Example: 22 Instruction: The 10th block was behind the 15th block but moved next to the 8th block. Steps: 20
+	 Total expected reward: 6.72149764467
+	 Avg. expected reward: 0.336074882234
+
+============================================
+Bisk Metric 0.174400761724
+Instruction: The 10th block is on top of the 15th, but moved next to the 8th block.
+9 south
+
+9 south
+
+9 south
+
+9 east
+
+9 east
+
+9 south
+
+9 south
+
+9 south
+
+9 south
+
+9 south
+
+9 south
+
+9 west
+
+9 west
+
+9 west
+
+9 west
+
+9 north
+
+9 north
+
+9 west
+
+9 west
+
+Stop
+
+Example: 23 Instruction: The 10th block is on top of the 15th, but moved next to the 8th block. Steps: 20
+	 Total expected reward: 6.72157287411
+	 Avg. expected reward: 0.336078643706
+
+============================================
+Bisk Metric 0.174325570464
+Instruction: the 10 should be taken from the upper left corner and placed directly next to the 8.  The 10 should be level on both the top and bottom sides with the 8, and there should be a tiny space between them.
+9 south
+
+9 south
+
+9 south
+
+9 east
+
+9 east
+
+9 south
+
+9 south
+
+9 south
+
+9 south
+
+9 south
+
+9 south
+
+9 west
+
+9 west
+
+9 west
+
+9 west
+
+9 north
+
+9 north
+
+9 west
+
+9 west
+
+Stop
+
+Example: 24 Instruction: the 10 should be taken from the upper left corner and placed directly next to the 8.  The 10 should be level on both the top and bottom sides with the 8, and there should be a tiny space between them. Steps: 20
+	 Total expected reward: 6.72154459823
+	 Avg. expected reward: 0.336077229911
+
+============================================
+Bisk Metric 0.174353912473
+Instruction: the 10 is placed on the right side of the 8, with both the top and bottom level with the 8
+9 south
+
+9 south
+
+9 south
+
+9 east
+
+9 east
+
+9 south
+
+9 south
+
+9 south
+
+9 south
+
+9 south
+
+9 south
+
+9 west
+
+9 west
+
+9 west
+
+9 west
+
+9 north
+
+9 north
+
+9 west
+
+9 west
+
+Stop
+
+Example: 25 Instruction: the 10 is placed on the right side of the 8, with both the top and bottom level with the 8 Steps: 20
+	 Total expected reward: 6.72156672925
+	 Avg. expected reward: 0.336078336462
+
+============================================
+Bisk Metric 0.174331709743
+Instruction: the 10 is placed to the right of the 8 so that they line up
+9 south
+
+9 south
+
+9 south
+
+9 east
+
+9 east
+
+9 south
+
+9 south
+
+9 south
+
+9 south
+
+9 south
+
+9 south
+
+9 west
+
+9 west
+
+9 west
+
+9 west
+
+9 north
+
+9 north
+
+9 west
+
+9 west
+
+Stop
+
+Example: 26 Instruction: the 10 is placed to the right of the 8 so that they line up Steps: 20
+	 Total expected reward: 6.72157936171
+	 Avg. expected reward: 0.336078968085
+
+============================================
+Bisk Metric 0.174319043756
+Instruction: pick up block 12 and place it directly to the right of block 10
+11 north
+
+11 north
+
+11 east
+
+11 east
+
+11 east
+
+11 north
+
+Stop
+
+Example: 27 Instruction: pick up block 12 and place it directly to the right of block 10 Steps: 7
+	 Total expected reward: 4.15806324221
+	 Avg. expected reward: 0.594009034602
+
+============================================
+Bisk Metric 0.298865348101
+Instruction: slide block 12 to the left and then up so that is is on the right of block 10
+11 north
+
+11 north
+
+11 east
+
+11 east
+
+11 east
+
+11 north
+
+Stop
+
+Example: 28 Instruction: slide block 12 to the left and then up so that is is on the right of block 10 Steps: 7
+	 Total expected reward: 4.15806324221
+	 Avg. expected reward: 0.594009034602
+
+============================================
+Bisk Metric 0.298865348101
+Instruction: lift up block 12 and place it  so that the left side of block 12 is flush against the right side of block 10
+11 north
+
+11 north
+
+11 east
+
+11 east
+
+11 east
+
+11 north
+
+Stop
+
+Example: 29 Instruction: lift up block 12 and place it  so that the left side of block 12 is flush against the right side of block 10 Steps: 7
+	 Total expected reward: 4.15804308839
+	 Avg. expected reward: 0.594006155484
+
+============================================
+Bisk Metric 0.298885464668
+Instruction: The 12 block moved from behind the 14, next to the 10 block.
+11 north
+
+11 north
+
+11 east
+
+11 east
+
+11 east
+
+11 north
+
+Stop
+
+Example: 30 Instruction: The 12 block moved from behind the 14, next to the 10 block. Steps: 7
+	 Total expected reward: 4.15804311819
+	 Avg. expected reward: 0.594006159742
+
+============================================
+Bisk Metric 0.298885464668
+Instruction: The 12th block was behind the 14, but moved next to the 10th block.
+11 north
+
+11 north
+
+11 east
+
+11 east
+
+11 east
+
+11 north
+
+Stop
+
+Example: 31 Instruction: The 12th block was behind the 14, but moved next to the 10th block. Steps: 7
+	 Total expected reward: 4.15804312658
+	 Avg. expected reward: 0.594006160939
+
+============================================
+Bisk Metric 0.298885464668
+Instruction: The 12th block was behind the 14th block, but moved over next to the 10th block.
+11 north
+
+11 north
+
+11 east
+
+11 east
+
+11 east
+
+11 north
+
+Stop
+
+Example: 32 Instruction: The 12th block was behind the 14th block, but moved over next to the 10th block. Steps: 7
+	 Total expected reward: 4.15806324221
+	 Avg. expected reward: 0.594009034602
+
+============================================
+Bisk Metric 0.298865348101
+Instruction: The 12 should be taken from above the 14 and placed directly next to the 10.  Both the top and bottom sides of the 12 should be even with the 10, and there should only be a tiny space between them.
+11 north
+
+11 north
+
+11 east
+
+11 east
+
+11 east
+
+11 north
+
+Stop
+
+Example: 33 Instruction: The 12 should be taken from above the 14 and placed directly next to the 10.  Both the top and bottom sides of the 12 should be even with the 10, and there should only be a tiny space between them. Steps: 7
+	 Total expected reward: 4.15804308839
+	 Avg. expected reward: 0.594006155484
+
+============================================
+Bisk Metric 0.298885464668
+Instruction: the 12 is placed to the right of the 10 so that they almost touch, level on both the top and bottom
+11 north
+
+11 north
+
+11 east
+
+11 east
+
+11 east
+
+11 north
+
+Stop
+
+Example: 34 Instruction: the 12 is placed to the right of the 10 so that they almost touch, level on both the top and bottom Steps: 7
+	 Total expected reward: 4.15804311819
+	 Avg. expected reward: 0.594006159742
+
+============================================
+Bisk Metric 0.298885464668
+Instruction: the 12 is placed to the right of the 10 so that the 8, 10, and 12 line up
+11 north
+
+11 north
+
+11 east
+
+11 east
+
+11 east
+
+11 north
+
+Stop
+
+Example: 35 Instruction: the 12 is placed to the right of the 10 so that the 8, 10, and 12 line up Steps: 7
+	 Total expected reward: 4.15804311819
+	 Avg. expected reward: 0.594006159742
+
+============================================
+Bisk Metric 0.298885464668
+Instruction: slide block 14 up so that it is directly to the right of block 12
+13 east
+
+13 east
+
+13 east
+
+13 east
+
+13 east
+
+Stop
+
+Example: 36 Instruction: slide block 14 up so that it is directly to the right of block 12 Steps: 6
+	 Total expected reward: 4.57077637315
+	 Avg. expected reward: 0.761796062191
+
+============================================
+Bisk Metric 0.573379933834
+Instruction: slide block 14 up and to the left so that it is on the left of block 12
+13 east
+
+13 east
+
+13 east
+
+13 east
+
+13 east
+
+Stop
+
+Example: 37 Instruction: slide block 14 up and to the left so that it is on the left of block 12 Steps: 6
+	 Total expected reward: 4.57077637315
+	 Avg. expected reward: 0.761796062191
+
+============================================
+Bisk Metric 0.573379933834
+Instruction: lift up block 14 and place it so that the left side of block 14 is flush with the right side of block 12
+13 east
+
+13 east
+
+13 east
+
+13 east
+
+13 east
+
+Stop
+
+Example: 38 Instruction: lift up block 14 and place it so that the left side of block 14 is flush with the right side of block 12 Steps: 6
+	 Total expected reward: 4.57075287402
+	 Avg. expected reward: 0.761792145669
+
+============================================
+Bisk Metric 0.573403418064
+Instruction: The 14 block moved next to the 12 block
+13 east
+
+13 east
+
+13 east
+
+13 east
+
+13 east
+
+Stop
+
+Example: 39 Instruction: The 14 block moved next to the 12 block Steps: 6
+	 Total expected reward: 4.57077637315
+	 Avg. expected reward: 0.761796062191
+
+============================================
+Bisk Metric 0.573379933834
+Instruction: The 14 block was next the 16th block, but moved next to the 12th block.
+13 east
+
+13 east
+
+13 east
+
+13 east
+
+13 east
+
+Stop
+
+Example: 40 Instruction: The 14 block was next the 16th block, but moved next to the 12th block. Steps: 6
+	 Total expected reward: 4.57077637315
+	 Avg. expected reward: 0.761796062191
+
+============================================
+Bisk Metric 0.573379933834
+Instruction: The 14th block was a few inches apart from the 16th block, but was moved up north towards the 12th block.
+13 east
+
+13 east
+
+13 east
+
+13 east
+
+13 east
+
+Stop
+
+Example: 41 Instruction: The 14th block was a few inches apart from the 16th block, but was moved up north towards the 12th block. Steps: 6
+	 Total expected reward: 4.57075287402
+	 Avg. expected reward: 0.761792145669
+
+============================================
+Bisk Metric 0.573403418064
+Instruction: the 14 is moved from the middle right side to be placed next to the 12.  They should be even with very little space between them
+13 east
+
+13 east
+
+13 east
+
+13 east
+
+13 east
+
+Stop
+
+Example: 42 Instruction: the 14 is moved from the middle right side to be placed next to the 12.  They should be even with very little space between them Steps: 6
+	 Total expected reward: 4.57075288892
+	 Avg. expected reward: 0.761792148153
+
+============================================
+Bisk Metric 0.573379933834
+Instruction: the 14 is placed to the right of the 12 so that they are level on both the top and bottom
+13 east
+
+13 east
+
+13 east
+
+13 east
+
+13 east
+
+Stop
+
+Example: 43 Instruction: the 14 is placed to the right of the 12 so that they are level on both the top and bottom Steps: 6
+	 Total expected reward: 4.57077637315
+	 Avg. expected reward: 0.761796062191
+
+============================================
+Bisk Metric 0.573379933834
+Instruction: the 14 is placed so that it lines up with the 8, 10, and 12
+13 east
+
+13 east
+
+13 east
+
+13 east
+
+13 east
+
+Stop
+
+Example: 44 Instruction: the 14 is placed so that it lines up with the 8, 10, and 12 Steps: 6
+	 Total expected reward: 4.57076723874
+	 Avg. expected reward: 0.761794539789
+
+============================================
+Bisk Metric 0.57338899374
+Instruction: move block 16 up and to the right so that the top left corner of block 16 touches the bottom right corner of block 14
+15 south
+
+15 east
+
+15 south
+
+15 south
+
+15 south
+
+15 east
+
+Stop
+
