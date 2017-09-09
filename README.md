@@ -8,30 +8,51 @@ In Proceedings of the Conference on Empirical Methods in Natural Language Proces
 
 The original environment was designed by [Bisk et al. 2016](http://yonatanbisk.com/papers/2016-NAACL.pdf), who also collected the [data](https://nlg.isi.edu/language-grounding/). 
 
-## Run the Code in 60 Seconds 
+## Run the Code in 60 Seconds (Requires only python 2.7)
 
-In this section, we will run the oracle baseline on the devset. This will give an idea of the simulator and code 
-and does not require tensorflow.
+In this section, we will run the oracle baseline on the devset. 
+This will give an idea of the simulator and code and does not require tensorflow.
 
-Supports: Mac and Linux Build
-Requires: python2.7
+**Supports:** Mac OS and Linux
+
+**Requires:** python2.7
 
 ### Running on Mac
 
 1) Clone the code  ``git clone https://github.com/clic-lab/blocks``
-2) Go to blocks/BlockWorldSimulator/ and run build_mac.app
+2) Go to ``./blocks/BlockWorldSimulator/`` and run ``build_mac.app`` by double clicking.
+
    Choose the Fastest mode setting and any resolution (does not matter which resolution).
-3) Now run the oracle baseline. Go to BlockWorldRoboticAgent and run the following command:
+   
+3) Now run the oracle baseline by running the following command in the home directory:
      
+      ``cd ./blocks/BlockWorldRoboticAgent/``
+      
       ``python agent_oracle.py``
+      
+4) The log will be generated in ``./blocks/BlockWorldRoboticAgent/log.txt`` and final number should match
+    the numbers in the paper *0.35 mean distance error*.
 
 ### Running on Linux
 
-Same as above except run linux_build.x86_64 instead of build_mac.app
-You may have to give executable permission to the build. To do so run:
+1) Clone the code  ``git clone https://github.com/clic-lab/blocks``
+2) Go to ``./blocks/BlockWorldSimulator/`` and make the file ``linux_build.x86_64`` executable by running:
 
-`` chmod 777 linux_build.x86_64``
+     ``chmod 777 linux_build.x86_64``
 
+3) Now run the file ``linux_build.x86_64`` by double clicking.
+
+   Choose the Fastest mode setting and any resolution (does not matter which resolution).
+   
+3) Finally run the oracle baseline by running the following command in the home directory:
+     
+      ``cd ./blocks/BlockWorldRoboticAgent/``
+      
+      ``python agent_oracle.py``
+      
+4) The log will be generated in ``./blocks/BlockWorldRoboticAgent/log.txt`` and final number should match
+    the numbers in the paper *0.35 mean distance error*.
+    
 Instructions for running other baselines will come soon.
 
 -------
