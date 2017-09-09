@@ -1,4 +1,4 @@
-# Block world simulator and code for Misra et al. EMNLP 2017
+# Blocks World -- Simulator, Code, and Models (Misra et al. EMNLP 2017)
 
 [Mapping Instructions and Visual Observations to Actions with Reinforcement Learning](https://arxiv.org/abs/1704.08795)  
 Dipendra Misra, John Langford, and Yoav Artzi  
