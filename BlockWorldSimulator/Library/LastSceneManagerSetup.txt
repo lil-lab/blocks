@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/simple_block_world.unity
+  isLoaded: 1
+  isActive: 1

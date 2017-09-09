@@ -1,0 +1,12 @@
+Num of datapoints:-1
+Shuffle before select:true
+File name:devset.json
+Simplified:false
+horizon:40
+Reward function type:4
+use localhost:true
+stop action reward:-1.0
+screen size:120
+decoration:both
+repeat:false
+percent demonstrations:1.0

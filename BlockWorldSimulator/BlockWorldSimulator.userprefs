@@ -1,0 +1,21 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/AgentMessenger.cs">
+    <Files>
+      <File FileName="Assets/AgentMessenger.cs" Line="1" Column="1" />
+      <File FileName="Assets/ObjectSystem.cs" Line="1" Column="1" />
+      <File FileName="Assets/InitScript.cs" Line="344" Column="42" />
+      <File FileName="Assets/RobotController.cs" Line="1" Column="1" />
+      <File FileName="Assets/LinearTranslation.cs" Line="1" Column="1" />
+      <File FileName="Assets/Point3D.cs" Line="1" Column="1" />
+      <File FileName="Assets/MDPManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/DatasetUtil.cs" Line="39" Column="7" />
+      <File FileName="Assets/DataPoint.cs" Line="1" Column="1" />
+      <File FileName="Assets/CachedTrajectory.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
