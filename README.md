@@ -4,7 +4,7 @@
 Dipendra Misra, John Langford, and Yoav Artzi  
 In Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP), 2017.  
 
-[![demo](http://yoavartzi.com/temp/emnlp2017-vid.gif "Blocks Demo (full approach)")](https://youtu.be/fmCP-SdDOT0)
+[![demo](http://yoavartzi.com/temp/emnlp2017-video.gif "Blocks Demo (full approach)")](https://youtu.be/fmCP-SdDOT0)
 
 The original environment was designed by [Bisk et al. 2016](http://yonatanbisk.com/papers/2016-NAACL.pdf), who also collected the [data](https://nlg.isi.edu/language-grounding/). 
 
