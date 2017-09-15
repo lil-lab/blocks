@@ -13,7 +13,7 @@ The original environment was designed by [Bisk et al. 2016](http://yonatanbisk.c
 In this section, we will run the oracle baseline on the devset. 
 This will give an idea of the simulator and the code and does not requires any dependency besides python 2.7.
 
-**Supports:** Mac OS and Linux
+**Supports:** Mac OS and Linux (with Unity Desktop)
 
 **Requires:** python2.7
 
@@ -29,7 +29,10 @@ This will give an idea of the simulator and the code and does not requires any d
      
       ``cd ./blocks/BlockWorldRoboticAgent/``
       
-      ``python agent_oracle.py``
+      ``python ./experiments/test_oracle.py``
+      
+   You can similarly run ``python ./experiments/test_stop.py`` and ``python ./experiments/test_random.py``
+   to run stop and random walk baselines respectively.
       
 4) The log will be generated in ``./blocks/BlockWorldRoboticAgent/log.txt`` and final number should match
     the numbers in the paper *0.35 mean distance error*.
@@ -50,7 +53,10 @@ This will give an idea of the simulator and the code and does not requires any d
      
       ``cd ./blocks/BlockWorldRoboticAgent/``
       
-      ``python agent_oracle.py``
+      ``python ./experiments/test_oracle.py``
+      
+   You can similarly run ``python ./experiments/test_stop.py`` and ``python ./experiments/test_random.py``
+   to run stop and random walk baselines respectively.
       
 4) The log will be generated in ``./blocks/BlockWorldRoboticAgent/log.txt`` and final number should match
     the numbers in the paper *0.35 mean distance error*.
