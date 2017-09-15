@@ -12,9 +12,10 @@ from learning.ml_estimation import MaximumLikelihoodEstimation
 class PolicyGradient(AbstractLearning):
     """ Policy gradient method with contextual bandit setting """
 
-    def __init__(self, agent, policy_model):
+    def __init__(self, agent, policy_model, total_reward):
         self.agent = agent
         self.policy_model = policy_model
+        self.total_reward = total_reward
 
         # Compute MLE loss function. MLE is used to initialize parameters for policy gradient
         self.mle_policy_gradient = MaximumLikelihoodEstimation(agent, policy_model)
@@ -183,11 +184,18 @@ class PolicyGradient(AbstractLearning):
                         self.agent.connection.send_message("Ok-Reset")
                         logger.Log.debug("Now waiting for response")
 
-                        # Compute monte carlo q values
-                        monte_carlo_q_val = rewards
+                        if self.total_reward:
+                            # Compute monte carlo q values
+                            reward_multiplier = [0] * steps
+                            for i in range(0, steps):
+                                # Q-value approximated by roll-out
+                                reward_multiplier[i] = sum(rewards[i:])
+                        else:
+                            # Use immediate reward only
+                            reward_multiplier = rewards
 
                         # Define the targets
-                        for replay_memory_item, cumm_reward in zip(replay_memory_items, monte_carlo_q_val):
+                        for replay_memory_item, cumm_reward in zip(replay_memory_items, reward_multiplier):
                             replay_memory_item.set_target_retroactively(cumm_reward)
 
                         # Perform 1 iteration of minibatch SGD using backpropagation

@@ -14,10 +14,11 @@ class PolicyGradientWithAdvantage(AbstractLearning):
         J = log p(a|s) * {\sum r_t - V(s)} + lambda* H(p(.|s))  where  \sum r_t ~ Q(s,a)
     """
 
-    def __init__(self, agent, policy_model, state_value_model):
+    def __init__(self, agent, policy_model, state_value_model, total_reward):
         self.agent = agent
         self.policy_model = policy_model
         self.state_value_model = state_value_model
+        self.total_reward = total_reward
 
         # Compute MLE loss function. MLE is used to initialize parameters for reinforce
         self.mle_policy_gradient = MaximumLikelihoodEstimation(agent, policy_model)
@@ -193,15 +194,19 @@ class PolicyGradientWithAdvantage(AbstractLearning):
                         self.agent.connection.send_message("Ok-Reset")
                         logger.Log.debug("Now waiting for response")
 
-                        # Compute monte carlo q values
-                        monte_carlo_q_val = [0] * steps
-                        for i in range(0, steps):
-                            # Q-value approximated by roll-out
-                            monte_carlo_q_val[i] = sum(rewards[i:])
+                        if self.total_reward:
+                            # Compute monte carlo q values
+                            reward_multiplier = [0] * steps
+                            for i in range(0, steps):
+                                # Q-value approximated by roll-out
+                                reward_multiplier[i] = sum(rewards[i:])
+                        else:
+                            # Use immediate reward only
+                            reward_multiplier = rewards
 
                         # Define the targets
                         for replay_memory_item, cumm_reward, baseline in zip(
-                                replay_memory_items, monte_carlo_q_val, baselines):
+                                replay_memory_items, reward_multiplier, baselines):
                             replay_memory_item.set_target_retroactively(cumm_reward - baseline)
 
                         # Train policy by optimizing policy gradinet objective using minibatch SGD and backpropagation
@@ -212,7 +217,7 @@ class PolicyGradientWithAdvantage(AbstractLearning):
 
                         # Train baseline using Monte-Carlo approximation to match V(s) -> sum_t r_t
                         loss_baseline = self.state_value_model.mc_train_iteration(
-                            replay_memory_items, monte_carlo_q_val, sess)
+                            replay_memory_items, reward_multiplier, sess)
                         if np.isnan(loss_baseline):
                             logger.Log.error("loss_baseline is NaN. Exiting")
                             exit(0)
