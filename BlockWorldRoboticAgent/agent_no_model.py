@@ -13,7 +13,7 @@ class AgentModelLess:
     Requires no parameters to be tuned. This is implemented in a separate file to remove
     dependencies on tensorflow allowing it to run on systems without those dependencies. """
 
-    def __init__(self, agent_type, config):
+    def __init__(self, agent_type, config, constants):
 
         # Initialize logger
         logger.Log.open("./log.txt")

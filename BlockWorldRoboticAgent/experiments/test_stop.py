@@ -9,7 +9,7 @@ constants_hyperparam = constants.constants
 config = Config.parse("../BlockWorldSimulator/Assets/config.txt")
 
 # Create the agent
-agent = AgentModelLess(STOP, config)
+agent = AgentModelLess(STOP, config, constants)
 
 dataset_size = 0
 

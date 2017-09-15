@@ -11,13 +11,13 @@ class PolicyNetwork:
     """ Creates policy pi(s,a) that generates probability
     over actions for a given observed state s. """
 
-    def __init__(self, image_dim, num_actions):
+    def __init__(self, image_dim, num_actions, constants):
 
         # Number of actions
         self.num_actions = num_actions
 
         # Neural network for embedding text
-        self.n_text = 250
+        self.n_text = constants["text_hidden_dim"]  # 250
         self.text_embedder = embed_token_seq.EmbedTokenSeq(self.n_text)
         text_embedding = self.text_embedder.get_output()
 
@@ -35,17 +35,21 @@ class PolicyNetwork:
         self.image_preprocessor = image_preprocessing.ImagePreprocessing()
 
         # Neural network for embedding image
-        self.n_image = 200
+        self.n_image = constants["image_hidden_dim"]  # 200
         self.image_embedder = embed_image.EmbedImage(self.n_image, image_dim)
         image_embedding = self.image_embedder.get_output()
 
         # Network for embedding past action
         # 6 actions, one for no-action
-        self.n_direction_dim = 24
-        self.n_blocks_dim = 32
+        num_blocks = constants["num_block"]
+        self.num_directions = constants["num_direction"]
+        self.n_direction_dim = constants["direction_dim"]  # 24
+        self.n_blocks_dim = constants["block_dim"]  # 32
         self.n_previous_action_embedding = self.n_direction_dim + self.n_blocks_dim
-        self.null_previous_action = (5, 20)
-        self.previous_action_embedder = epa.EmbedPreviousAction(6, self.n_direction_dim, 21, self.n_blocks_dim)
+        self.null_previous_action = (self.num_directions + 1, num_blocks)  # (5, 20)
+        # self.previous_action_embedder = epa.EmbedPreviousAction(6, self.n_direction_dim, 21, self.n_blocks_dim)
+        self.previous_action_embedder = epa.EmbedPreviousAction(
+            self.num_directions + 2, self.n_direction_dim, num_blocks + 1, self.n_blocks_dim)
         previous_action_embedding = self.previous_action_embedder.get_output()
 
         # Neural network for mixing the embeddings of text
@@ -53,7 +57,7 @@ class PolicyNetwork:
         use_softmax = True
         self.mix_and_gen_prob = mix_and_gen_prob.MixAndGenerateProbabilities(
             self.n_text, self.n_image, self.n_previous_action_embedding,
-            text_embedding, image_embedding, previous_action_embedding, 5, use_softmax)
+            text_embedding, image_embedding, previous_action_embedding, self.num_directions + 1, use_softmax)  # was 5
 
         ####################
         self.mix_and_gen_prob_buckets = []
@@ -61,7 +65,7 @@ class PolicyNetwork:
             mix_and_gen_prob_bucket = mix_and_gen_prob.MixAndGenerateProbabilities(
                 self.n_text, self.n_image, self.n_previous_action_embedding,
                 self.embed_token_seq_buckets[i].get_output(), image_embedding,
-                previous_action_embedding, 5, use_softmax, create_copy=self.mix_and_gen_prob)
+                previous_action_embedding, self.num_directions + 1, use_softmax, create_copy=self.mix_and_gen_prob)
             self.mix_and_gen_prob_buckets.append(mix_and_gen_prob_bucket)
         ####################
 
@@ -127,11 +131,11 @@ class PolicyNetwork:
         actions_values = [0] * self.num_actions
 
         for action_id in range(0, self.num_actions - 1):
-            block_id = int(action_id/4.0)
-            direction_id = action_id % 4
+            block_id = int(action_id/float(self.num_directions))
+            direction_id = action_id % self.num_directions
             actions_values[action_id] = block_prob[block_id] * direction_prob[direction_id]
 
-        # Stop probability
-        actions_values[self.num_actions - 1] = direction_prob[4]
+        # Stop probability. Assumes last direction is always STOP
+        actions_values[self.num_actions - 1] = direction_prob[self.num_directions]
 
         return actions_values

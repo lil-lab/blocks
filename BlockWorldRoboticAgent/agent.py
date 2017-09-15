@@ -26,7 +26,7 @@ SUPERVISEDMLE, SIMPLEQLEARNING, REINFORCE, PGADVANTAGE, CONTEXTUALBANDIT = range
 class Agent:
     """" The block world agent that takes action and moves block around in a toy domain. """
 
-    def __init__(self, train_alg, config):
+    def __init__(self, train_alg, config, constants):
 
         # Initialize logger
         logger.Log.open("./log.txt")

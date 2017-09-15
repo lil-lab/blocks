@@ -5,6 +5,8 @@ constants = dict()
 
 constants["text_hidden_dim"] = 250
 constants["image_hidden_dim"] = 200
+constants["direction_dim"] = 24
+constants["block_dim"] = 32
 constants["rl_learning_rate"] = 0.0025
 constants["mle_learning_rate"] = 0.001
 

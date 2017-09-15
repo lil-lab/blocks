@@ -28,7 +28,6 @@ class EmbedTokenSeq:
             self.embedding = create_copy.embedding
             self.vocabulary_size = create_copy.vocabulary_size
         else:
-            # (vocabulary, word_dim, word_embedding_matrix) = EmbedTokenSeq.read_word_embedding_matrix_from_file()
             word_dim = 150
             vocabulary = [EmbedTokenSeq.null, EmbedTokenSeq.unk]
             word_embedding_matrix = [[0] * word_dim] + [[0] * word_dim]
@@ -159,41 +158,6 @@ class EmbedTokenSeq:
         indices = self.pad_indices(indices)
 
         return [indices], self.mask_ls[num_tk]
-
-    @staticmethod
-    def read_word_embedding_matrix_from_file():
-        """ Reads word2vec word embedding matrix from a file.
-        TODO move the file name above """
-
-        lines = open("../word_embeddings/GoogleNews_word2vec.txt").readlines()
-        word_embeddings = []
-        vocabulary = []
-
-        word_dim = None
-
-        for line in lines:
-            splits = line.split(":")
-            word = splits[0]
-            vector = [float(w) for w in splits[1].split(",")]
-
-            if word_dim is None:
-                word_dim = len(vector)
-            elif not (word_dim == len(vector)):
-                raise AssertionError("Word Dimensions inconsistent: " + str(word_dim) + " vs " + str(len(vector)))
-
-            word_embeddings.append(vector)
-            vocabulary.append(word)
-
-        # Add null vector for padding and an unknown token
-        # The 0 index is reserved for the zero vector padding representing NULL
-        # The 1 index is reserved for unseen words
-        # Embedding of unknown and null word is the zero vector.
-        # Currently unknown words are not encountered during training hence this seems natural
-        # The null word embedding does not affect result due to zero masking.
-        vocabulary = [EmbedTokenSeq.null] + [EmbedTokenSeq.unk] + vocabulary
-        word_embeddings = [[0] * word_dim] + [[0] * word_dim] + word_embeddings
-
-        return vocabulary, word_dim, word_embeddings
 
     @staticmethod
     def normal_word_vector(word_dim):
