@@ -1,5 +1,4 @@
 import sys
-import config
 import logger
 import message_protocol_util as mpu
 import reliable_connect as rc

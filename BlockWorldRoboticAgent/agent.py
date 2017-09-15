@@ -4,7 +4,6 @@ import tensorflow as tf
 import logger
 import message_protocol_util as mpu
 import reliable_connect as rc
-from learning.mixer_algorithm import MixerAlgorithm
 from learning.ml_estimation import MaximumLikelihoodEstimation
 from learning.policy_gradient import PolicyGradient
 from learning.q_learning import QLearning

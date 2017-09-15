@@ -32,4 +32,4 @@ agent.test(dataset_size)
 
 # If you have several models to test on then you can use test_range function given below.
 # Example code below will test on every 2nd epoch model starting from epoch 2 to epoch 10.
-agent.test_range(dataset_size, "./saved_mle", epoch_start=2, epoch_end=10, epoch_step=2)
+# agent.test_range(dataset_size, "./saved_mle", epoch_start=2, epoch_end=10, epoch_step=2)

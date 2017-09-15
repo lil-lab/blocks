@@ -1,5 +1,4 @@
 import tensorflow as tf
-import re
 import numpy as np
 
 
@@ -128,9 +127,6 @@ class EmbedImage:
 
     def get_output(self):
         return self.output
-
-    def get_debug_conv(self):
-        return self.conv2
 
     def copy_variables_to(self, other):
         """ We are given another object of this class and we want to copy
