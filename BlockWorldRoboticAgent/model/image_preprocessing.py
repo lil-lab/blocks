@@ -17,4 +17,4 @@ class ImagePreprocessing:
         return self.raw_image
 
     def get_standardized_image(self, image, sess):
-        return self.final_image.eval(session=sess, feed_dict={self.raw_image:image})
+        return self.final_image.eval(session=sess, feed_dict={self.raw_image: image})

@@ -6,7 +6,7 @@ from config import Config
 constants_hyperparam = constants.constants
 
 # Read the configuration file that connects agent and simulator
-config = config.Config.parse("../BlockWorldSimulator/Assets/config.txt")
+config = Config.parse("../BlockWorldSimulator/Assets/config.txt")
 
 # Create the agent
 agent = AgentModelLess(ORACLE, config)
