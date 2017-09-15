@@ -74,16 +74,16 @@ class Agent:
 
         # Define model and learning algorithm
         if self.train_alg == SUPERVISEDMLE:
-            self.model = PolicyNetwork(image_dim, self.num_actions)
+            self.model = PolicyNetwork(image_dim, self.num_actions, constants)
             self.learning_alg = MaximumLikelihoodEstimation(self, self.model)
         elif self.train_alg == REINFORCE:
-            self.model = PolicyNetwork(image_dim, self.num_actions)
+            self.model = PolicyNetwork(image_dim, self.num_actions, constants)
             self.learning_alg = PolicyGradient(self, self.model, total_reward=True)
         elif self.train_alg == CONTEXTUALBANDIT:
-            self.model = PolicyNetwork(image_dim, self.num_actions)
+            self.model = PolicyNetwork(image_dim, self.num_actions, constants)
             self.learning_alg = PolicyGradient(self, self.model, total_reward=False)
         elif self.train_alg == PGADVANTAGE:
-            self.model = PolicyNetwork(image_dim, self.num_actions)
+            self.model = PolicyNetwork(image_dim, self.num_actions, constants)
             self.state_value_model = StateValueFunctionModel(250, image_dim, 200, 24, 32)
             self.learning_alg = PolicyGradientWithAdvantage(self, self.model, self.state_value_model, total_reward=True)
         elif self.train_alg == SIMPLEQLEARNING:
