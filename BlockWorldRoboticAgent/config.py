@@ -25,7 +25,7 @@ class Config:
         elif dataset_file == "testset.json":
             self.data_mode = Config.TEST
         else:
-            raise AssertionError("Unknown dataset file " + str(self.data_mode))
+            raise AssertionError("Unknown dataset file " + str(dataset_file))
 
     @staticmethod
     def parse(file_name):
@@ -35,7 +35,7 @@ class Config:
 
         dataset_size = int(lines[0][lines[0].index(':') + 1:])
         shuffle_before_select = True if lines[1][lines[1].index(':') + 1:] == "true" else False
-        dataset_file = lines[2][lines[2].index(':') + 1:]
+        dataset_file = lines[2][lines[2].index(':') + 1:].strip()
         simplified = True if lines[3][lines[3].index(':') + 1:] == "true" else False
         horizon = int(lines[4][lines[4].index(':') + 1:])
         reward_function_type = int(lines[5][lines[5].index(':') + 1:])

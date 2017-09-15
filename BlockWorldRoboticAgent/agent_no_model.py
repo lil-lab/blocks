@@ -99,7 +99,7 @@ class AgentModelLess:
                 if self.agent_type == ORACLE:
                     action_id = trajectory[steps]
                 elif self.agent_type == RANDOM_WALK:
-                    action_id = random.randint(0, 81)
+                    action_id = random.randint(0, 80)
                 elif self.agent_type == STOP:
                     action_id = 80
                 else:
