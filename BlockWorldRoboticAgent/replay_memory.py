@@ -12,7 +12,7 @@ class ReplayMemory:
                  reward, end_env, target, action_prob=None, previous_action_id=None):
         self.instruction_word_indices = instruction_word_indices
         self.instruction_mask = instruction_mask
-        self.history_state = np.concatenate(list(history_state), 2) # Copy the history to prevent overwriting
+        self.history_state = np.concatenate(list(history_state), 2)  # Copy the history to prevent overwriting
         self.action = action
         self.reward = reward
         self.end_env = end_env

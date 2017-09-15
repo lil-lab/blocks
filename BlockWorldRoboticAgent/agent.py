@@ -1,7 +1,6 @@
 import collections
 import sys
 import tensorflow as tf
-import config
 import logger
 import message_protocol_util as mpu
 import reliable_connect as rc
@@ -16,26 +15,24 @@ from model.v_network import StateValueFunctionModel
 import generic_policy as gp
 
 
-class TrainingAlgorithm:
-    """ The different kind of training algorithm that are used to train the agent.
-     SUPERVISEDMLE: Supervised learning that maximizes likelihood of next action.
-     SIMPLEQLEARNING: is Q-learning with an epsilon-greedy behaviour policy.
-     REINFORCE: Performs policy gradient using reinforce algorithm.
-     MIXER: Curriculum learning of Aurelio, performs maximum likelihood and REINFORCE.
-     SELFCRITICAL: Computes REINFORCE baseline using test time inference. """
-    SUPERVISEDMLE, SIMPLEQLEARNING, REINFORCE, MIXER, SELFCRITICAL, PGADVANTAGE = range(6)
+# The different kind of training algorithm that are used to train the agent.
+# SUPERVISEDMLE: Supervised learning that maximizes log-likelihood of next action.
+# SIMPLEQLEARNING: Deep Q-learning with an epsilon-greedy behaviour policy.
+# REINFORCE: Performs policy gradient using reinforce algorithm with entropy regularization but no baseline.
+# PGADVANTAGE: Advantage Actor Critic (A2C) algorithm using V function as a baseline in REINFORCE (not asynchronous).
+# CONTEXTUALBANDIT: Contextual Bandit algorithm that maximizes the immediate reward.
+SUPERVISEDMLE, SIMPLEQLEARNING, REINFORCE, PGADVANTAGE, CONTEXTUALBANDIT = range(5)
 
 
 class Agent:
     """" The block world agent that takes action and moves block around in a toy domain. """
 
-    def __init__(self, train_alg):
+    def __init__(self, train_alg, config):
 
         # Initialize logger
         logger.Log.open("./log.txt")
 
-        # Parse the game configuration
-        self.config = config.Config.parse("../BlockWorldSimulator/Assets/config.txt")
+        self.config = config
 
         # Connect to simulator
         if len(sys.argv) < 2:
@@ -77,27 +74,23 @@ class Agent:
         self.train_alg = train_alg
 
         # Define model and learning algorithm
-        if self.train_alg == TrainingAlgorithm.SUPERVISEDMLE:
+        if self.train_alg == SUPERVISEDMLE:
             self.model = PolicyNetwork(image_dim, self.num_actions)
             self.learning_alg = MaximumLikelihoodEstimation(self, self.model)
-        elif self.train_alg == TrainingAlgorithm.REINFORCE:
+        elif self.train_alg == REINFORCE:
             self.model = PolicyNetwork(image_dim, self.num_actions)
             self.learning_alg = PolicyGradient(self, self.model)
-        elif self.train_alg == TrainingAlgorithm.PGADVANTAGE:
+        elif self.train_alg == PGADVANTAGE:
             self.model = PolicyNetwork(image_dim, self.num_actions)
             self.state_value_model = StateValueFunctionModel(250, image_dim, 200, 24, 32)
             self.learning_alg = PolicyGradientWithAdvantage(self, self.model, self.state_value_model)
-        elif self.train_alg == TrainingAlgorithm.MIXER:
-            self.model = PolicyNetwork(image_dim, self.num_actions)
-            self.learning_alg = MixerAlgorithm(self)
-        elif self.train_alg == TrainingAlgorithm.SIMPLEQLEARNING:
+        elif self.train_alg == SIMPLEQLEARNING:
             self.model = ActionValueFunctionNetwork(250, image_dim, 200, 24, 32)
             self.target_q_network = ActionValueFunctionNetwork(
                 250, image_dim, 200, 24, 32, scope_name="Target_Q_Network")
             self.learning_alg = QLearning(self, self.model, self.target_q_network)
         else:
-            logger.Log.error("Training algorithm " + str(self.train_alg) + " not found or implemented.")
-            exit(0)
+            raise AssertionError("Training algorithm " + str(self.train_alg) + " not found or implemented.")
 
         self.sess = None
         self.train_writer = None
@@ -296,19 +289,14 @@ class Agent:
 
         return avg_bisk_metric
 
-    def test_range(self, folder_name, epoch_start, epoch_end, epoch_step=1):
+    def test_range(self, dataset_size, folder_name, epoch_start, epoch_end, epoch_step=1):
         """ Tests a range of model saved at different epochs. Be careful to run it
         with only on a dev or validation set and not on the held-out test set. """
         for epoch in range(epoch_start, epoch_end, epoch_step):
             self.init_session(folder_name + "/model_epoch_" + str(epoch) + ".ckpt")
-            res = self.test(855)
+            res = self.test(dataset_size)
             logger.Log.info("Dev results for epoch = " + str(epoch) + " is " + str(res))
 
     def train(self):
         """ Perform training """
         self.learning_alg.train(self.sess, self.train_writer)
-
-agent = Agent(TrainingAlgorithm.PGADVANTAGE)
-# agent.init_session()
-agent.test_oracle(3177)
-# agent.train()

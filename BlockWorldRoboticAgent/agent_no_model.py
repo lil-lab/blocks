@@ -4,18 +4,22 @@ import logger
 import message_protocol_util as mpu
 import reliable_connect as rc
 import generic_policy as gp
+import random
+
+ORACLE, RANDOM_WALK, STOP = range(3)
 
 
-class Agent:
-    """" The block world agent that takes action and moves block around in a toy domain. """
+class AgentModelLess:
+    """" The block world agent that implements oracle, random walk and the stop baseline.
+    Requires no parameters to be tuned. This is implemented in a separate file to remove
+    dependencies on tensorflow allowing it to run on systems without those dependencies. """
 
-    def __init__(self):
+    def __init__(self, agent_type, config):
 
         # Initialize logger
         logger.Log.open("./log.txt")
 
-        # Parse the game configuration
-        self.config = config.Config.parse("../BlockWorldSimulator/Assets/config.txt")
+        self.config = config
 
         # Connect to simulator
         if len(sys.argv) < 2:
@@ -29,6 +33,8 @@ class Agent:
             self.PORT = 11000
         else:
             self.PORT = int(sys.argv[2])
+
+        self.agent_type = agent_type
 
         # Size of image
         image_dim = self.config.screen_size
@@ -74,7 +80,7 @@ class Agent:
         (status_code, reward, _, reset_file_name) = self.message_protocol_kit.decode_message(response)
         return status_code, reward, img, reset_file_name
 
-    def test_oracle(self, dataset_size):
+    def test(self, dataset_size):
         """ Runs oracle algorithm on the dataset """
 
         sum_bisk_metric = 0
@@ -91,7 +97,15 @@ class Agent:
 
             while True:
                 # sample action from the likelihood distribution
-                action_id = trajectory[steps]
+                if self.agent_type == ORACLE:
+                    action_id = trajectory[steps]
+                elif self.agent_type == RANDOM_WALK:
+                    action_id = random.randint(0, 81)
+                elif self.agent_type == STOP:
+                    action_id = 80
+                else:
+                    raise AssertionError("Unknown agent type. Found " + str(self.agent_type))
+
                 action_str = self.message_protocol_kit.encode_action(action_id)
                 print "Sending Message: " + action_str
                 logger.Log.info(action_str + "\n")
@@ -124,6 +138,3 @@ class Agent:
         logger.Log.flush()
 
         return avg_bisk_metric
-
-agent = Agent()
-agent.test_oracle(1719)
