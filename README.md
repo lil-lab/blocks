@@ -28,7 +28,9 @@ This will give an idea of the simulator and the code and does not requires any d
    May take 5-10 seconds for the simulator to be ready and before following command works.
      
       ``cd ./blocks/BlockWorldRoboticAgent/``
+      
       ``export PYTHONPATH=<location-of-blocks-folder>/BLockWorldRoboticAgent/:$PYTHONPATH``
+      
       ``python ./experiments/test_oracle.py``
       
    You can similarly run ``python ./experiments/test_stop.py`` and ``python ./experiments/test_random.py``
@@ -52,7 +54,9 @@ This will give an idea of the simulator and the code and does not requires any d
    May take 5-10 seconds for the simulator to be ready and before following command works.
      
       ``cd ./blocks/BlockWorldRoboticAgent/``
+      
       ``export PYTHONPATH=<location-of-blocks-folder>/BLockWorldRoboticAgent/:$PYTHONPATH``
+      
       ``python ./experiments/test_oracle.py``
       
    You can similarly run ``python ./experiments/test_stop.py`` and ``python ./experiments/test_random.py``
