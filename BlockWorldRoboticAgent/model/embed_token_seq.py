@@ -12,7 +12,7 @@ class EmbedTokenSeq:
     # Token representing unknown words
     unk = "$UNK$"
 
-    def __init__(self, output_size, ignore_case=True, num_steps=82, create_copy=None, scope_name="RNN"):
+    def __init__(self, output_size, ignore_case=True, num_steps=83, create_copy=None, scope_name="RNN"):
         self.batch_size = tf.placeholder(dtype=tf.int32)
         self.num_steps = num_steps
         self.lstm_size = 200
