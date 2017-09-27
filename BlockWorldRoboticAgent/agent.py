@@ -106,6 +106,8 @@ class Agent:
         if model_file is None:
             self.sess.run(tf.initialize_all_variables())
             logger.Log.info("Initialized all variables ")
+            saver = tf.train.Saver()
+            saver.save(self.sess, "./saved/init.ckpt")
         else:
             saver = tf.train.Saver()
             saver.restore(self.sess, model_file)
@@ -132,7 +134,7 @@ class Agent:
         (status_code, reward, _, reset_file_name) = self.message_protocol_kit.decode_message(response)
         return status_code, reward, img, reset_file_name
 
-    def test(self, dataset_size):
+    def test(self, dataset_size, oracle=False):
         """ Performs testing on the Block World Task. The agent interacts with the simulator
          which will iterate over the entire dataset and perform roll-out using test policy. """
 
@@ -167,12 +169,16 @@ class Agent:
             previous_action = self.model.null_previous_action
             blocks_moved = []
             first = True
+            traj_ix = 0
 
             while True:
                 # sample action from the likelihood distribution
                 action_values = self.model.get_action_values(previous_state, text_input_word_indices,
                                                              text_mask, previous_action, self.sess)
                 inferred_action = self.test_policy(action_values)
+                if oracle:
+                    inferred_action = trajectory[traj_ix]
+                    traj_ix += 1
                 action_str = self.message_protocol_kit.encode_action(inferred_action)
                 block_id = int(inferred_action/4.0)
                 direction_id = inferred_action % 4
