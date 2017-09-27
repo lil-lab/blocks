@@ -81,7 +81,7 @@ class MaximumLikelihoodEstimation(AbstractLearning):
         iteration = 0
 
         # Validation metric
-        avg_bisk_metric = self.agent.test(tuning_size)
+        avg_bisk_metric = self.agent.test(tuning_size, oracle=True)
         min_avg_bisk_metric = avg_bisk_metric
         patience = 0
         max_patience = AbstractLearning.max_patience
@@ -189,4 +189,4 @@ class MaximumLikelihoodEstimation(AbstractLearning):
                 patience = 0
             min_avg_bisk_metric = min(min_avg_bisk_metric, avg_bisk_metric)
 
-        logger.Log.close()
+        # logger.Log.close()

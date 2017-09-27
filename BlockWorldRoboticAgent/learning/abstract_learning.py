@@ -11,8 +11,8 @@ class AbstractLearning:
     max_epochs = 1000
     models_to_keep = 200
     max_patience = 1000
-    dataset_size = 6003
-    validation_datasize = 351
+    dataset_size = 11871
+    validation_datasize = 675
 
     def __init__(self, model, loss, train_step, update_summaries):
         """ Creates constructor for an abstract learning setup """
