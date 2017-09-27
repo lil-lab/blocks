@@ -9,7 +9,7 @@ constants_hyperparam = constants.constants
 config = Config.parse("../BlockWorldSimulator/Assets/config.txt")
 
 # Create the agent
-agent = Agent(CONTEXTUALBANDIT, config, constants)
+agent = Agent(CONTEXTUALBANDIT, config, constants_hyperparam)
 
 dataset_size = 0
 
@@ -24,7 +24,7 @@ else:
 
 # If model file is None then model will use a randomly initialized model.
 # Gpu memory fraction additionally take into account the % of GPU to occupy.
-agent.init_session(model_file="./", gpu_memory_fraction=1.0)
+agent.init_session(model_file=None, gpu_memory_fraction=1.0)
 # E.g., agent.init_session(model_file="./saved_mle/model_epoch_4.ckpt", gpu_memory_fraction=0.25)
 
 # Test the agent
@@ -33,3 +33,4 @@ agent.test(dataset_size)
 # If you have several models to test on then you can use test_range function given below.
 # Example code below will test on every 2nd epoch model starting from epoch 2 to epoch 10.
 # agent.test_range(dataset_size, "./saved_mle", epoch_start=2, epoch_end=10, epoch_step=2)
+# agent.test_range(dataset_size, "./saved_reinforce_mle_init_wb_reinit_2", epoch_start=2, epoch_end=14, epoch_step=2)

@@ -9,7 +9,7 @@ constants_hyperparam = constants.constants
 config = Config.parse("../BlockWorldSimulator/Assets/config.txt")
 
 # Create the agent
-agent = Agent(SIMPLEQLEARNING, config, constants)
+agent = Agent(SIMPLEQLEARNING, config, constants_hyperparam)
 
 dataset_size = 0
 
@@ -24,7 +24,7 @@ else:
 
 # If model file is None then model will use a randomly initialized model.
 # Gpu memory fraction additionally take into account the % of GPU to occupy.
-agent.init_session(model_file="./", gpu_memory_fraction=1.0)
+agent.init_session(model_file=None, gpu_memory_fraction=1.0)
 # E.g., agent.init_session(model_file="./saved_mle/model_epoch_4.ckpt", gpu_memory_fraction=0.25)
 
 # Train the agent
