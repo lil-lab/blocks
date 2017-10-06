@@ -6,7 +6,7 @@ In Proceedings of the Conference on Empirical Methods in Natural Language Proces
 
 <p align="center"><a href="https://youtu.be/fmCP-SdDOT0"><img src="http://yoavartzi.com/temp/emnlp2017-video.gif"></a></p>
 
-The original environment was designed by [Bisk et al. 2016](http://yonatanbisk.com/papers/2016-NAACL.pdf), who also collected the [data](https://nlg.isi.edu/language-grounding/). 
+**The original environment was designed by [Bisk et al. 2016](http://yonatanbisk.com/papers/2016-NAACL.pdf), who also collected the [data](https://groundedlanguage.github.io/).**
 
 ## Run the Code in 60 Seconds (Requires only python 2.7)
 
