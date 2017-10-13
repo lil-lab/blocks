@@ -70,3 +70,20 @@ Instructions for running other baselines will come soon.
 -------
 
 **Production Release and pre-trained models coming soon ...**
+
+## Attribution
+
+```
+@InProceedings{D17-1107,
+  author = 	"Misra, Dipendra
+		and Langford, John
+		and Artzi, Yoav",
+  title = 	"Mapping Instructions and Visual Observations to Actions with Reinforcement Learning",
+  booktitle = 	"Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing",
+  year = 	"2017",
+  publisher = 	"Association for Computational Linguistics",
+  pages = 	"1015--1026",
+  location = 	"Copenhagen, Denmark",
+  url = 	"http://aclweb.org/anthology/D17-1107"
+}
+```
