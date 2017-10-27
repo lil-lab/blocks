@@ -75,22 +75,18 @@ class EmbedImage:
             image_embedding = tf.add(tf.matmul(reshape, weights), biases, name=scope.name)
             self.variables.extend([weights, biases])
 
-        self.debug1 = conv1
-        self.debug2 = conv2
         self.output = image_embedding
 
-        # Create 4 images for padding
+        # Create 4 images for padding in the beginning
         padding_image = np.zeros((image_dim, image_dim, 3), dtype=np.float32)
         self.padding_images = [padding_image, padding_image, padding_image, padding_image]
         print "Created Image Embedder"
 
-    def get_dummy_images(self):
+    def get_padding_images(self):
         return self.padding_images
 
-    def get_debugs(self):
-        return [self.debug1, self.debug2]
-
-    def _variable_on_cpu(self, name, shape, initializer):
+    @staticmethod
+    def _variable_on_cpu(name, shape, initializer):
         """Helper to create a Variable stored on CPU memory.
         Args:
           name: name of the variable

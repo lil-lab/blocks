@@ -138,7 +138,7 @@ class Agent:
         """ Performs testing on the Block World Task. The agent interacts with the simulator
          which will iterate over the entire dataset and perform roll-out using test policy. """
 
-        dummy_images = self.model.image_embedder.get_dummy_images()
+        dummy_images = self.model.image_embedder.get_padding_images()
         previous_state = collections.deque([], 5)
 
         sum_bisk_metric = 0

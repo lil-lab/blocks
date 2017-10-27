@@ -17,25 +17,23 @@ class PolicyNetwork:
         self.num_actions = num_actions
 
         # Neural network for embedding text
-        self.n_text = constants["text_hidden_dim"]  # 250
+        self.n_text = constants["text_hidden_dim"]
         self.text_embedder = embed_token_seq.EmbedTokenSeq(self.n_text)
         text_embedding = self.text_embedder.get_output()
 
-        ####################
-        # Create bucket network
+        # Create bucket network for RNN
         self.buckets = [15, 30, 45]
         self.embed_token_seq_buckets = []
         for bucket in self.buckets:
             embed_token_seq_bucket = \
                 embed_token_seq.EmbedTokenSeq(self.n_text, num_steps=bucket, create_copy=self.text_embedder)
             self.embed_token_seq_buckets.append(embed_token_seq_bucket)
-        ####################
 
         # Image Preprocessing
         self.image_preprocessor = image_preprocessing.ImagePreprocessing()
 
         # Neural network for embedding image
-        self.n_image = constants["image_hidden_dim"]  # 200
+        self.n_image = constants["image_hidden_dim"]
         self.image_embedder = embed_image.EmbedImage(self.n_image, image_dim)
         image_embedding = self.image_embedder.get_output()
 
@@ -43,11 +41,10 @@ class PolicyNetwork:
         # 6 actions, one for no-action
         num_blocks = constants["num_block"]
         self.num_directions = constants["num_direction"]
-        self.n_direction_dim = constants["direction_dim"]  # 24
-        self.n_blocks_dim = constants["block_dim"]  # 32
+        self.n_direction_dim = constants["direction_dim"]
+        self.n_blocks_dim = constants["block_dim"]
         self.n_previous_action_embedding = self.n_direction_dim + self.n_blocks_dim
-        self.null_previous_action = (self.num_directions + 1, num_blocks)  # (5, 20)
-        # self.previous_action_embedder = epa.EmbedPreviousAction(6, self.n_direction_dim, 21, self.n_blocks_dim)
+        self.null_previous_action = (self.num_directions + 1, num_blocks)
         self.previous_action_embedder = epa.EmbedPreviousAction(
             self.num_directions + 2, self.n_direction_dim, num_blocks + 1, self.n_blocks_dim)
         previous_action_embedding = self.previous_action_embedder.get_output()
@@ -57,9 +54,9 @@ class PolicyNetwork:
         use_softmax = True
         self.mix_and_gen_prob = mix_and_gen_prob.MixAndGenerateProbabilities(
             self.n_text, self.n_image, self.n_previous_action_embedding,
-            text_embedding, image_embedding, previous_action_embedding, self.num_directions + 1, use_softmax)  # was 5
+            text_embedding, image_embedding, previous_action_embedding, self.num_directions + 1, use_softmax)
 
-        ####################
+        # Create buckets
         self.mix_and_gen_prob_buckets = []
         for i in range(0, len(self.buckets)):
             mix_and_gen_prob_bucket = mix_and_gen_prob.MixAndGenerateProbabilities(
@@ -67,7 +64,6 @@ class PolicyNetwork:
                 self.embed_token_seq_buckets[i].get_output(), image_embedding,
                 previous_action_embedding, self.num_directions + 1, use_softmax, create_copy=self.mix_and_gen_prob)
             self.mix_and_gen_prob_buckets.append(mix_and_gen_prob_bucket)
-        ####################
 
         # Define input and output
         self.target = tf.placeholder(dtype=tf.float32, shape=None)
@@ -91,7 +87,7 @@ class PolicyNetwork:
                 return self.mix_and_gen_prob_buckets[i], self.embed_token_seq_buckets[i]
         return self.mix_and_gen_prob, self.text_embedder
 
-    def evaluate_qfunction(self, image_data, text_input_word_indices, text_mask, previous_action, sess):
+    def evaluate_policy(self, image_data, text_input_word_indices, text_mask, previous_action, sess):
         """ Compute policy over actions for a given observed state. This code does not work with batch. """
 
         mix_and_gen_prob_bucket, text_embedder_bucket = self.get_bucket_network(sum(text_mask[0]))
@@ -125,7 +121,7 @@ class PolicyNetwork:
          over the action. These scoring values are probabilities for policy network
          but will be Q-values for a q-network. """
 
-        block_prob, direction_prob = self.evaluate_qfunction(
+        block_prob, direction_prob = self.evaluate_policy(
             image_data, text_input_word_indices, text_mask, previous_action, sess)
 
         actions_values = [0] * self.num_actions

@@ -16,12 +16,8 @@ dataset_size = 0
 
 if config.data_mode == Config.TRAIN:
     dataset_size = constants_hyperparam["train_size"]
-elif config.data_mode == Config.DEV:
-    dataset_size = constants_hyperparam["dev_size"]
-elif config.data_mode == Config.TEST:
-    dataset_size = constants_hyperparam["test_size"]
 else:
-    raise AssertionError("Unknown or unhandled data_mode. Found " + str(config.data_mode))
+    raise AssertionError("Training on dev/test or unhandled data_mode. Found " + str(config.data_mode))
 
 # If model file is None then model will use a randomly initialized model.
 # Gpu memory fraction additionally take into account the % of GPU to occupy.

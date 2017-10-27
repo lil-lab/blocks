@@ -86,7 +86,7 @@ class PolicyGradient(AbstractLearning):
         start = time.time()
 
         # Initialization using 2 epochs of MLE
-        self.mle_policy_gradient.train(sess, train_writer, max_epoch=2, model_name="./model_mle")
+        self.mle_policy_gradient.train(sess, train_writer, max_epoch=2, model_name="./model_mle", terminate=False)
         # Reinitialize the direction parameters
         w1, b1 = self.policy_model.mix_and_gen_prob.get_direction_weights()
         sess.run(tf.initialize_variables([w1, b1]))
@@ -104,7 +104,7 @@ class PolicyGradient(AbstractLearning):
         iteration = 0
 
         # Validation metric
-        avg_bisk_metric = self.agent.test(tuning_size)
+        avg_bisk_metric = self.agent.test(tuning_size, oracle=True)
         min_avg_bisk_metric = avg_bisk_metric
         patience = 0
         max_patience = AbstractLearning.max_patience
@@ -117,20 +117,19 @@ class PolicyGradient(AbstractLearning):
                 # Create a queue to handle history of states
                 state = collections.deque([], 5)
                 # Add the dummy images
-                dummy_images = self.policy_model.image_embedder.get_dummy_images()
+                dummy_images = self.policy_model.image_embedder.get_padding_images()
                 [state.append(v) for v in dummy_images]
 
                 # Receive the instruction and the environment
                 (_, _, current_env, instruction, trajectory) = self.agent.receive_instruction_and_image()
                 state.append(current_env)
 
-                ########################
+                # Convert text to indices
                 text_indices = self.policy_model.text_embedder.convert_text_to_indices(instruction)
                 _, text_embedder_bucket = self.policy_model.get_bucket_network(len(text_indices))
                 (text_input_word_indices_bucket, text_mask_bucket) = text_embedder_bucket.pad_and_return_mask(
                     text_indices)
                 (text_input_word_indices, text_mask) = self.policy_model.text_embedder.pad_and_return_mask(text_indices)
-                ########################
 
                 logger.Log.info("=================\n " + str(data_point) + ": Instruction: "
                                 + str(instruction) + "\n=================")
@@ -147,7 +146,7 @@ class PolicyGradient(AbstractLearning):
                 # Perform a roll out
                 while True:
                     # Compute the probability of the current state
-                    block_prob, direction_prob = self.policy_model.evaluate_qfunction(
+                    block_prob, direction_prob = self.policy_model.evaluate_policy(
                         state, text_input_word_indices_bucket, text_mask_bucket,
                         previous_action=previous_status_code, sess=sess)
 

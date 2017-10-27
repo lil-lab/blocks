@@ -118,7 +118,7 @@ class QLearning(AbstractLearning):
                 # Create a queue to handle history of states
                 state = collections.deque([], 5)
                 # Add the dummy images
-                dummy_images = self.model.image_embedder.get_dummy_images()
+                dummy_images = self.model.image_embedder.get_padding_images()
                 [state.append(v) for v in dummy_images]
 
                 # Receive the instruction and the environment
@@ -126,13 +126,12 @@ class QLearning(AbstractLearning):
                 logger.Log.info("Train Bisk Metric " + str(bisk_metric))
                 state.append(current_env)
 
-                ########################
+                # Convert text to indices
                 text_indices = self.q_network.text_embedder.convert_text_to_indices(instruction)
                 _, text_embedder_bucket = self.q_network.get_bucket_network(len(text_indices))
                 (text_input_word_indices_bucket, text_mask_bucket) = text_embedder_bucket.pad_and_return_mask(
                     text_indices)
                 (text_input_word_indices, text_mask) = self.q_network.text_embedder.pad_and_return_mask(text_indices)
-                ########################
 
                 logger.Log.info("=================\n " + str(data_point) + ": Instruction: "
                                 + str(instruction) + "\n=================")

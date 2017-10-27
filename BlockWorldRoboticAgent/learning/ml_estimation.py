@@ -62,7 +62,7 @@ class MaximumLikelihoodEstimation(AbstractLearning):
         loss = tf.reduce_mean(neg_log_prob)
         return loss
 
-    def train(self, sess, train_writer, max_epoch=AbstractLearning.max_epochs, model_name="./model"):
+    def train(self, sess, train_writer, max_epoch=AbstractLearning.max_epochs, model_name="./model", terminate=True):
         """ Performs supervised learning on the Block World Task. The agent interacts with the
          simulator and performs roll-out followed by supervised learning. """
 
@@ -96,7 +96,7 @@ class MaximumLikelihoodEstimation(AbstractLearning):
                 # Create a queue to handle history of states
                 state = collections.deque([], 5)
                 # Add the dummy images
-                dummy_images = self.policy_model.image_embedder.get_dummy_images()
+                dummy_images = self.policy_model.image_embedder.get_padding_images()
                 [state.append(v) for v in dummy_images]
 
                 # Receive the instruction and the environment
@@ -168,25 +168,28 @@ class MaximumLikelihoodEstimation(AbstractLearning):
                         logger.Log.flush()
                         break
 
-            # Compute validation accuracy
-            avg_bisk_metric = self.agent.test(tuning_size)
-            logger.Log.info("Tuning Data: (end of epoch " + str(epoch) + ") Avg. Bisk Metric: "
-                            + str(avg_bisk_metric) + "Min was " + str(min_avg_bisk_metric))
             # Save the model
             save_path = saver.save(sess, "./saved/" + str(model_name) + "_epoch_" + str(epoch) + ".ckpt")
             logger.Log.info("Model saved in file: " + str(save_path))
 
-            if avg_bisk_metric >= min_avg_bisk_metric:
-                if patience == max_patience:
-                    logger.Log.info("Max patience reached. Terminating learning after " + str(epoch) +
-                                    " epochs and " + str(iteration) + " iterations.")
-                    break
-                else:
-                    logger.Log.info("Tuning accuracy did not improve. Increasing patience to " + str(patience + 1))
-                    patience += 1
-            else:
-                logger.Log.info("Resetting patience to 0")
-                patience = 0
-            min_avg_bisk_metric = min(min_avg_bisk_metric, avg_bisk_metric)
+            if epoch < max_epoch or not terminate:
+                # Compute validation accuracy
+                avg_bisk_metric = self.agent.test(tuning_size)
+                logger.Log.info("Tuning Data: (end of epoch " + str(epoch) + ") Avg. Bisk Metric: "
+                                + str(avg_bisk_metric) + "Min was " + str(min_avg_bisk_metric))
 
-        # logger.Log.close()
+                if avg_bisk_metric >= min_avg_bisk_metric:
+                    if patience == max_patience:
+                        logger.Log.info("Max patience reached. Terminating learning after " + str(epoch) +
+                                        " epochs and " + str(iteration) + " iterations.")
+                        break
+                    else:
+                        logger.Log.info("Tuning accuracy did not improve. Increasing patience to " + str(patience + 1))
+                        patience += 1
+                else:
+                    logger.Log.info("Resetting patience to 0")
+                    patience = 0
+                min_avg_bisk_metric = min(min_avg_bisk_metric, avg_bisk_metric)
+
+        if terminate:
+            logger.Log.close()
