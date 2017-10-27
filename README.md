@@ -1,5 +1,7 @@
 # Blocks World -- Simulator, Code, and Models (Misra et al. EMNLP 2017)
 
+(This is a developmental code for early release. A stable release will go out soon. Please contact dkm@cs.cornell.edu for more details.)
+
 [Mapping Instructions and Visual Observations to Actions with Reinforcement Learning](https://arxiv.org/abs/1704.08795)  
 Dipendra Misra, John Langford, and Yoav Artzi  
 In Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP), 2017.  
