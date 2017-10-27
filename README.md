@@ -13,31 +13,9 @@ In Proceedings of the Conference on Empirical Methods in Natural Language Proces
 In this section, we will run the oracle baseline on the devset. 
 This will give an idea of the simulator and the code and does not requires any dependency besides python 2.7.
 
-**Supports:** Mac OS and Linux (with Unity Desktop)
+**Supports:** Linux (with Unity Desktop)
 
 **Requires:** python2.7
-
-### Running on Mac
-
-1) Clone the code  ``git clone https://github.com/clic-lab/blocks``
-2) Go to ``./blocks/BlockWorldSimulator/`` and run ``build_mac.app`` by double clicking.
-
-   Choose the Fastest mode setting and any resolution (does not matter which resolution).
-   
-3) Now run the oracle baseline by running the following command in the home directory.
-   May take 5-10 seconds for the simulator to be ready and before following command works.
-     
-      ``cd ./blocks/BlockWorldRoboticAgent/``
-      
-      ``export PYTHONPATH=<location-of-blocks-folder>/BLockWorldRoboticAgent/:$PYTHONPATH``
-      
-      ``python ./experiments/test_oracle.py``
-      
-   You can similarly run ``python ./experiments/test_stop.py`` and ``python ./experiments/test_random.py``
-   to run stop and random walk baselines respectively.
-      
-4) The log will be generated in ``./blocks/BlockWorldRoboticAgent/log.txt`` and final number should match
-    the numbers in the paper *0.35 mean distance error*.
 
 ### Running on Linux
 
@@ -48,7 +26,9 @@ This will give an idea of the simulator and the code and does not requires any d
 
 3) Now run the file ``linux_build.x86_64`` by double clicking.
 
-   Choose the Fastest mode setting and any resolution (does not matter which resolution).
+   Choose the Fastest mode setting and any resolution (does not matter which resolution). 
+   
+   **Note**: The screen will remain black and the window will be frozen until you run the python agent.
    
 3) Finally run the oracle baseline by running the following command in the home directory.
    May take 5-10 seconds for the simulator to be ready and before following command works.
