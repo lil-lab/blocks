@@ -13,11 +13,11 @@ In Proceedings of the Conference on Empirical Methods in Natural Language Proces
 In this section, we will run the oracle baseline on the devset. 
 This will give an idea of the simulator and the code and does not requires any dependency besides python 2.7.
 
-**Supports:** Linux (with Unity Desktop)
+**Supports:** Linux (with Unity Desktop)   (Mac build to be supported soon)
 
 **Requires:** python2.7
 
-### Running on Linux
+### Run a simple baseline
 
 1) Clone the code  ``git clone https://github.com/clic-lab/blocks``
 2) Go to ``./blocks/BlockWorldSimulator/`` and make the file ``linux_build.x86_64`` executable by running:
