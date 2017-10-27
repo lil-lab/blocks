@@ -172,7 +172,7 @@ class MaximumLikelihoodEstimation(AbstractLearning):
             save_path = saver.save(sess, "./saved/" + str(model_name) + "_epoch_" + str(epoch) + ".ckpt")
             logger.Log.info("Model saved in file: " + str(save_path))
 
-            if epoch < max_epoch or not terminate:
+            if epoch < max_epoch or terminate:
                 # Compute validation accuracy
                 avg_bisk_metric = self.agent.test(tuning_size)
                 logger.Log.info("Tuning Data: (end of epoch " + str(epoch) + ") Avg. Bisk Metric: "
