@@ -6,7 +6,9 @@
 Dipendra Misra, John Langford, and Yoav Artzi  
 In Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP), 2017.  
 
-<p align="center"><a href="https://youtu.be/fmCP-SdDOT0"><img src="http://yoavartzi.com/temp/emnlp2017-video.gif"></a></p>
+
+<p align="center"><a href="https://youtu.be/fmCP-SdDOT0" target="_blank"><img src="http://www.cs.cornell.edu/~dkm/img/emnlp2017-sim.jpg"  alt="simulation" width="240" border="10"/></a></p>
+
 
 **The original environment was designed by [Bisk et al. 2016](http://yonatanbisk.com/papers/2016-NAACL.pdf), who also collected the [data](https://groundedlanguage.github.io/).**
 
