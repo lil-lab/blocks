@@ -2,7 +2,7 @@
 
 **Note:** We are releasing a new software called the Cornell Instruction Following Framework (CIFF). CIFF provides a common interface for blocks corpus and three other corpuses. CIFF also contains implementation of various model and learning algorithm including asynchronous learning for faster training. All new developments on block world simulator and code will now be done with the CIFF framework. We won't be actively developing this repository.
 
-Please follow CIFF repository for new developments: https://github.com/clic-lab/ciff
+**Please follow the CIFF repository for new developments:** https://github.com/clic-lab/ciff
 
 
 [Mapping Instructions and Visual Observations to Actions with Reinforcement Learning](https://arxiv.org/abs/1704.08795)  
