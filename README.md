@@ -1,4 +1,4 @@
-# Blocks World -- Simulator, Code, and Models (Misra et al. EMNLP 2017)
+## Blocks World Simulator, Code, and Models (Misra et al. EMNLP 2017)
 
 **Note:** We are releasing a new software called the Cornell Instruction Following Framework (CIFF). CIFF provides a common interface for blocks corpus and three other corpuses. CIFF also contains implementation of various model and learning algorithm including asynchronous learning for faster training. All new developments on block world simulator and code will now be done with the CIFF framework. We won't be actively developing this repository.
 
@@ -15,7 +15,7 @@ In Proceedings of the Conference on Empirical Methods in Natural Language Proces
 
 **The original environment was designed by [Bisk et al. 2016](http://yonatanbisk.com/papers/2016-NAACL.pdf), who also collected the [data](https://groundedlanguage.github.io/).**
 
-## Run the Code in 60 Seconds (Requires only python 2.7)
+### Run the Code in 60 Seconds (Requires only python 2.7)
 
 In this section, we will run the oracle baseline on the devset. 
 This will give an idea of the simulator and the code and does not requires any dependency besides python 2.7.
@@ -24,7 +24,7 @@ This will give an idea of the simulator and the code and does not requires any d
 
 **Requires:** python2.7
 
-### Run a simple baseline
+#### Run a simple baseline
 
 1) Clone the code  ``git clone https://github.com/clic-lab/blocks``
 2) Go to ``./blocks/BlockWorldSimulator/`` and make the file ``linux_build.x86_64`` executable by running:
@@ -58,7 +58,7 @@ Instructions for running other baselines will come soon.
 
 **Production Release and pre-trained models coming soon ...**
 
-## Attribution
+### Attribution
 
 ```
 @InProceedings{D17-1107,
